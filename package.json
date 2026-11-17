@@ -1,0 +1,64 @@
+{
+  "name": "notify",
+  "productName": "Notify",
+  "version": "1.0.0",
+  "description": "A clean, customizable desktop interface for Spotify — synced lyrics, living artwork and listening stats.",
+  "main": "src/main.js",
+  "author": "Notify",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win --x64 --publish never",
+    "dist:dir": "electron-builder --win --x64 --dir --publish never"
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8",
+    "resedit": "^1.7.2"
+  },
+  "build": {
+    "appId": "app.notify.desktop",
+    "productName": "Notify",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "Notify-${version}-Portable.exe"
+    },
+    "nsis": {
+      "artifactName": "Notify-Setup-${version}.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Notify",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "afterPack": "build/afterPack.js",
+    "publish": null
+  }
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://api.spotify.com https://*.scdn.co https://*.spotifycdn.com; media-src 'self' https:; font-src 'self' data:">
+  <title>Notify</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="bg" aria-hidden="true"></div>
+  <div id="app">
+    <header id="titlebar"></header>
+    <aside id="sidebar"></aside>
+    <main id="view"></main>
+    <aside id="queue-panel" class="side-panel" hidden></aside>
+    <footer id="playerbar"></footer>
+  </div>
+  <section id="nowplaying" aria-label="Now playing"></section>
+  <div id="mini"></div>
+  <div id="devices-pop" class="popover" hidden></div>
+  <div id="onboarding"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
